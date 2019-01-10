@@ -11,6 +11,10 @@
 		let ctx = canvas.getContext("2d");
 
 		//fillRect(x, y, width, height)
+	function drawGround(){
+		ctx.fillStyle = "#ffa500";
+		ctx.fillRect(0, 550, 3000, 100);
+	}
 	function drawHead(){ 
 		ctx.fillStyle = "#0000ff";
 		ctx.fillRect(100, 100, 100, 100);
@@ -32,30 +36,67 @@
 	//frame 2
 	function drawLeftLegTwo(){
 		ctx.save();
-		ctx.rotate(25 * Math.PI / 180);
-		ctx.fillStyle = "#ff0000"; 
-		ctx.fillRect(280, 300, 25, 150);
+		ctx.fillStyle = "#ff0000"; //red
+		ctx.fillRect(150, 400, 25, 150);
 	}
 	//frame 2
 	function drawRightLegTwo(){
 		ctx.restore();
 		ctx.rotate(-45 * Math.PI / 180); //Gör så att canvas blir roterad
-		ctx.fillStyle = "#ff00ff";
+		ctx.fillStyle = "#ff00ff"; //magenta
 		ctx.fillRect(-180, 400, 25, 150);
 	}
 
-	function drawGround(){
-		ctx.fillStyle = "#ffa500";
-		ctx.fillRect(0, 550, 3000, 100);
+	//frame 3
+	function drawRightLegThree(){
+		ctx.restore();
+		ctx.rotate(-45 * Math.PI / 180); //Gör så att canvas blir roterad
+		ctx.fillStyle = "#ff00ff"; //magenta
+		ctx.fillRect(-180, 400, 25, 150);
 	}
+	//frame 3
+	function drawLeftLegThree(){
+		ctx.save();
+		ctx.rotate(25 * Math.PI / 180);
+		ctx.fillStyle = "#ff0000"; //red
+		ctx.fillRect(280, 300, 25, 150);
+	}
+
+	//frame 4
+	function drawRightLegFour(){
+		ctx.restore();
+		ctx.fillStyle = "#ff00ff"; //magenta
+		ctx.fillRect(150, 400, 25, 150);
+	}
+	//frame 4
+	function drawLeftLegFour(){
+		ctx.save();
+		ctx.rotate(25 * Math.PI / 180);
+		ctx.fillStyle = "#ff0000"; //red
+		ctx.fillRect(280, 300, 25, 150);
+	}
+
 	function draw() {
 	//ctx.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas
 	drawGround();
 	drawHead();
 	drawBody();
 
-	drawLeftLegTwo();
-	drawRightLegTwo();
+	//Frame1
+	//drawRightLeg();
+	//drawLeftLeg();
+
+	//Frame2
+	//drawLeftLegTwo();
+	//drawRightLegTwo();
+
+	//Frame3
+	//drawLeftLegThree();
+	//drawRightLegThree();
+
+	//Frame4
+	drawLeftLegFour();
+	drawRightLegFour();
 
 	// a, b, c, d, f, g
 	//ctx.transform(1,1,1,1,1,1);
