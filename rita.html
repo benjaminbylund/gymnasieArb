@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css"> canvas{border:black 3px solid;}</style>
+</head>
+<body>
+	<canvas id="test" width="900" height="600"></canvas>
+	<script>
+		let canvas = document.getElementById("test");
+		let ctx = canvas.getContext("2d");
+
+		//fillRect(x, y, width, height)
+	function drawHead(){ 
+		ctx.fillStyle = "#0000ff";
+		ctx.fillRect(100, 100, 100, 100);
+	}
+		function drawBody(){
+		ctx.fillStyle = "#00ff00";
+		ctx.fillRect(125, 200, 50, 200);
+	}	
+	//frame 1
+	function drawLeftLeg(){
+		ctx.fillStyle = "#ff0000"; //red
+		ctx.fillRect(150, 400, 25, 150);
+	}
+	//frame 1
+	function drawRightLeg(){
+		ctx.fillStyle = "#ff00ff"; //magenta
+		ctx.fillRect(125, 400, 25, 150);
+	}
+	//frame 2
+	function drawLeftLegTwo(){
+		ctx.save();
+		ctx.rotate(25 * Math.PI / 180);
+		ctx.fillStyle = "#ff0000"; 
+		ctx.fillRect(280, 300, 25, 150);
+	}
+	//frame 2
+	function drawRightLegTwo(){
+		ctx.restore();
+		ctx.rotate(-45 * Math.PI / 180); //Gör så att canvas blir roterad
+		ctx.fillStyle = "#ff00ff";
+		ctx.fillRect(-180, 400, 25, 150);
+	}
+
+	function drawGround(){
+		ctx.fillStyle = "#ffa500";
+		ctx.fillRect(0, 550, 3000, 100);
+	}
+	function draw() {
+	//ctx.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas
+	drawGround();
+	drawHead();
+	drawBody();
+
+	drawLeftLegTwo();
+	drawRightLegTwo();
+
+	// a, b, c, d, f, g
+	//ctx.transform(1,1,1,1,1,1);
+
+	//ctx.translate(3, 0); //Pushes the player to the right 
+
+	//vinkla benet och ändra x värdet
+	//requestAnimationFrame(draw);
+}
+
+draw();
+	
+	</script>
+</body>
+</html>
+
